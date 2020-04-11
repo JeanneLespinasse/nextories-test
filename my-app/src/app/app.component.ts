@@ -2,7 +2,8 @@ import {
     Component
 } from '@angular/core';
 import {
-    FormControl, FormGroup
+    FormControl,
+    FormGroup
 } from '@angular/forms';
 
 @Component({
@@ -13,7 +14,7 @@ import {
 export class AppComponent {
     title = 'my-app';
 
-    data = new FormGroup({
+    form = new FormGroup({
         name: new FormControl(''),
         length: new FormControl(''),
         width: new FormControl(''),
@@ -21,16 +22,29 @@ export class AppComponent {
     });
     volume = 0;
     errors = [];
+    objectList = [];
 
-    calculate() {
-        if(this.data.value.length >= 0 
-           && this.data.value.width >= 0 
-           && this.data.value.heigth >= 0){
-            this.volume = (this.data.value.length 
-                           * this.data.value.width 
-                           * this.data.value.heigth)/1000000;
+    addObject() {
+        let data = this.form.value;
+        
+        if (data.length >= 0 &&
+            data.width >= 0 &&
+            data.heigth >= 0 &&
+            data.name != '') {
+            this.volume = (data.length * data.width * data.heigth) / 1000000;
+
+            this.objectList.push({
+                name : data.name,
+                length : data.length,
+                width : data.width,
+                heigth : data.heigth,
+                volume : this.volume
+            });
+            console.log('objectList', this.objectList);
         } else {
-            this.errors.push('La hauteur, la largeur et la longueur doivent être supérieurs à 0. Merci de corriger la saisie.');
+            this.errors.push('La hauteur, la largeur et la longueur doivent être supérieurs à 0.');
+            this.errors.push('Le nom du meuble doit être renseigné.');
+            this.errors.push('Merci de corriger la saisie.');
             console.log(this.errors);
         }
     }

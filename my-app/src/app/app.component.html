@@ -1,5 +1,5 @@
-<div class="container-fluid col" role="main">
-    <div *ngIf="errors.length > 0" class="error-div row">
+<div class="container-fluid no-pad" role="main">
+    <div *ngIf="errors.length > 0" class="error-div">
         <div class="" *ngFor="let error of errors">{{ error}} </div>
         <span class="close-span">
             <button class="btn btn-close" (click)="errors = []"> Fermer </button>
@@ -9,7 +9,7 @@
     <div class="container-fluid row">
 
         <div class="form-group col">
-            <form [formGroup]="data" (ngSubmit)="calculate()">
+            <form [formGroup]="form" (ngSubmit)="calculate()">
                 <input type="text" formControlName="name" placeholder="Nom du meuble" class="form-input" />
                 <input type="number" min="0" formControlName="length" placeholder="Longueur(cm)" class="form-input" />
                 <input type="number" min="0" formControlName="width" placeholder="Largeur(cm)" class="form-input" />
@@ -26,7 +26,7 @@
             </span>
             <span class="separation row"></span>
             <span class="button-span row">
-                <button (click)="calculate()" class="btn calculation-btn">Calculer</button>
+                <button (click)="addObject()" class="btn add-btn">Ajouter</button>
             </span>
         </div>
 
