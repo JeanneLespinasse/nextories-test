@@ -35,6 +35,9 @@
     <div class="container-fluid row">
         <div class="container-fluid row">
             <h2 class="table-title "> Inventaire </h2>
+            <span class="table-title end-line"> Volume total:
+                <span class="total-volume-span">{{ totalVolume }} m3 </span>
+            </span>
         </div>
         <div class="container-fluid row">
             <div *ngIf="objectList.length == 0" class="content-table table-light-text" > Auncun meuble enregistré pour le moment </div>

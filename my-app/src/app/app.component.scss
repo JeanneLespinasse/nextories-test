@@ -35,13 +35,18 @@
     }
 }
 
+.total-volume-span,
 .volume-span {
-    height: 100px;
-    width: 150px;
     border-radius: 10px;
     background-color: lightgray;
     text-align: center;
     display: inline-block;
+    padding: 2px 5px;
+}
+
+.volume-span {
+    height: 100px;
+    width: 150px;
 
     .text {
         line-height: 100px;
@@ -84,4 +89,10 @@
 
 .table-strong-text {
     color: dimgray;
+}
+
+.end-line {
+    position: absolute;
+    right: 60px;
+    padding-top: 10px;
 }

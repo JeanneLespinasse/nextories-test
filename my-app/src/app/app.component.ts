@@ -21,6 +21,7 @@ export class AppComponent {
         heigth: new FormControl('')
     });
     volume = 0;
+    totalVolume = 0;
     errors = [];
     objectList = [];
 
@@ -32,7 +33,7 @@ export class AppComponent {
             data.heigth >= 0 &&
             data.name != '') {
             this.volume = (data.length * data.width * data.heigth) / 1000000;
-
+            this.totalVolume += this.volume;
             this.objectList.push({
                 name : data.name,
                 length : data.length,
