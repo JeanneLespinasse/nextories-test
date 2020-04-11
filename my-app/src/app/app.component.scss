@@ -79,6 +79,10 @@
     padding: 15px;
     border-collapse: unset;
     border: 1px solid #bbbaba;
+
+    i {
+        cursor:pointer;
+    }
 }
 
 .table-light-text {

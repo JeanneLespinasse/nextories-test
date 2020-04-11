@@ -40,13 +40,16 @@
             </span>
         </div>
         <div class="container-fluid row">
-            <div *ngIf="objectList.length == 0" class="content-table table-light-text" > Auncun meuble enregistré pour le moment </div>
+            <div *ngIf="objectList.length == 0" class="content-table table-light-text" > Aucun meuble enregistré pour le moment </div>
             <table *ngIf="objectList.length > 0" class="content-table object-table container-fluid">
-                <tr *ngFor="let object of objectList"
+                <tr *ngFor="let object of objectList; let idx = index"
                     class="content-table container-fluid">
                     <td class="table-strong-text">{{ object.name }}</td>
                     <td class="table-light-text">L.{{ object.length }} x l.{{ object.width }} x h.{{ object.heigth }}</td>
                     <td class="table-strong-text">{{ object.volume }} m3</td>
+                    <td (click)="removeObject(idx)">
+                        <i class="material-icons">delete_forever</i>
+                    </td>
                 </tr>
             </table>
         </div>
