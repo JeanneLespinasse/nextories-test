@@ -1,0 +1,59 @@
+.no-pad {
+    padding: 0px;
+}
+
+.error-div {
+    background-color: indianred;
+    border: 1px solid red;
+    padding: 5px 5px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+
+    .btn-close {
+        padding: 5px;
+        border: 1px solid #981717;
+        background-color: #981717;
+        color: white;
+    }
+}
+
+.separation {
+    height: 15px;
+}
+
+.form-input {
+    border: 0;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: lightgrey;
+    padding: 10px 0px;
+
+    &:hover {
+        border-color: #418dff;
+    }
+}
+
+.volume-span {
+    height: 100px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: lightgray;
+    text-align: center;
+    display: inline-block;
+
+    .text {
+        line-height: 100px;
+    }
+}
+
+.button-span {
+    text-align: center;
+    padding: 30px 0px 0px 30px;
+
+    .calculation-btn {
+        background-color: #418dff;
+        color: white;
+        border-radius: 0px;
+    }
+}

@@ -1,0 +1,34 @@
+<div class="container-fluid col" role="main">
+    <div *ngIf="errors.length > 0" class="error-div row">
+        <div class="" *ngFor="let error of errors">{{ error}} </div>
+        <span class="close-span">
+            <button class="btn btn-close" (click)="errors = []"> Fermer </button>
+        </span>
+    </div>
+    <span class="separation row"></span>
+    <div class="container-fluid row">
+
+        <div class="form-group col">
+            <form [formGroup]="data" (ngSubmit)="calculate()">
+                <input type="text" formControlName="name" placeholder="Nom du meuble" class="form-input" />
+                <input type="number" min="0" formControlName="length" placeholder="Longueur(cm)" class="form-input" />
+                <input type="number" min="0" formControlName="width" placeholder="Largeur(cm)" class="form-input" />
+                <input type="number" min="0" formControlName="heigth" placeholder="Hauteur(cm)" class="form-input" />
+            </form>
+        </div>
+
+        <div class="form-group col">
+            <span class="volume-span row">
+                <span class="text">
+                    {{ volume }} (m³)
+                </span>
+
+            </span>
+            <span class="separation row"></span>
+            <span class="button-span row">
+                <button (click)="calculate()" class="btn calculation-btn">Calculer</button>
+            </span>
+        </div>
+
+    </div>
+</div>
