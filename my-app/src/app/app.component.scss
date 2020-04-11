@@ -58,3 +58,30 @@
         border-radius: 0px;
     }
 }
+
+.table-title {
+    color: dimgray;
+    padding-left: 15px;
+}
+
+.object-table {
+    padding-left: 15px;
+}
+
+.content-table {
+    width: 100%;
+    margin-left: 15px;
+    padding: 15px;
+    border-collapse: unset;
+    border: 1px solid #bbbaba;
+}
+
+.table-light-text {
+    font-size: 0.8em;
+    color: #bbbaba;
+    font-style: italic;
+}
+
+.table-strong-text {
+    color: dimgray;
+}

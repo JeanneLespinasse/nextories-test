@@ -31,4 +31,21 @@
         </div>
 
     </div>
+    <span class="separation row"></span>
+    <div class="container-fluid row">
+        <div class="container-fluid row">
+            <h2 class="table-title "> Inventaire </h2>
+        </div>
+        <div class="container-fluid row">
+            <div *ngIf="objectList.length == 0" class="content-table table-light-text" > Auncun meuble enregistré pour le moment </div>
+            <table *ngIf="objectList.length > 0" class="content-table object-table container-fluid">
+                <tr *ngFor="let object of objectList"
+                    class="content-table container-fluid">
+                    <td class="table-strong-text">{{ object.name }}</td>
+                    <td class="table-light-text">L.{{ object.length }} x l.{{ object.width }} x h.{{ object.heigth }}</td>
+                    <td class="table-strong-text">{{ object.volume }} m3</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
