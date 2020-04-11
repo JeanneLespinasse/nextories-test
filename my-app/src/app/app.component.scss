@@ -81,7 +81,7 @@
     border: 1px solid #bbbaba;
 
     i {
-        cursor:pointer;
+        cursor: pointer;
     }
 }
 
@@ -99,4 +99,17 @@
     position: absolute;
     right: 60px;
     padding-top: 10px;
+}
+
+.multi-erase-span {
+    padding: 0px 5px;
+    border: 1px solid #981717;
+    background-color: #981717;
+    color: white;
+    border-radius: 7px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    margin: 10px 10px;
+    cursor: pointer;
 }

@@ -35,20 +35,29 @@
     <div class="container-fluid row">
         <div class="container-fluid row">
             <h2 class="table-title "> Inventaire </h2>
+            <span *ngIf="selectedObjects.length > 0" class="multi-erase-span"
+                  (click)="removeObjects()">
+                <i class="material-icons">delete_forever</i>
+                <span class="align-with-icon">Supprimer la sélection</span>
+            </span>
             <span class="table-title end-line"> Volume total:
                 <span class="total-volume-span">{{ totalVolume }} m3 </span>
             </span>
         </div>
+        <span class="separation row"></span>
         <div class="container-fluid row">
-            <div *ngIf="objectList.length == 0" class="content-table table-light-text" > Aucun meuble enregistré pour le moment </div>
+            <div *ngIf="objectList.length == 0" class="content-table table-light-text"> Aucun meuble enregistré pour le moment </div>
             <table *ngIf="objectList.length > 0" class="content-table object-table container-fluid">
-                <tr *ngFor="let object of objectList; let idx = index"
-                    class="content-table container-fluid">
+                <tr *ngFor="let object of objectList; let idx = index" class="content-table container-fluid">
+                    <td class="checkbox" (click)="toggleObjects(idx)">
+                        <i *ngIf="selectedObjects.indexOf(idx) != -1" class="material-icons">check_box</i>
+                        <i *ngIf="selectedObjects.indexOf(idx) == -1" class="material-icons">check_box_outline_blank</i>
+                    </td>
                     <td class="table-strong-text">{{ object.name }}</td>
                     <td class="table-light-text">L.{{ object.length }} x l.{{ object.width }} x h.{{ object.heigth }}</td>
                     <td class="table-strong-text">{{ object.volume }} m3</td>
                     <td (click)="removeObject(idx)">
-                        <i class="material-icons">delete_forever</i>
+                        <i class="material-icons">delete</i>
                     </td>
                 </tr>
             </table>

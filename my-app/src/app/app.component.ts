@@ -24,6 +24,7 @@ export class AppComponent {
     totalVolume = 0;
     errors = [];
     objectList = [];
+    selectedObjects = [];
 
     round(value) {
         return parseFloat(value.toFixed(1));
@@ -49,10 +50,24 @@ export class AppComponent {
             this.errors.push('La hauteur, la largeur et la longueur doivent être supérieurs à 0.');
             this.errors.push('Le nom du meuble doit être renseigné.');
             this.errors.push('Merci de corriger la saisie.');
-            console.log(this.errors);
         }
     }
     removeObject(index) {
         this.totalVolume = this.round(this.totalVolume - this.objectList.splice(index, 1)[0].volume);
+    }
+    removeObjects() {
+        this.selectedObjects.sort((a, b) => b - a);
+        this.selectedObjects.forEach(function (object_idx) {
+            this.removeObject(object_idx);
+        }.bind(this));
+        this.selectedObjects = [];
+    }
+    toggleObjects(value) {
+        let idx = this.selectedObjects.indexOf(value);
+        if (idx != -1){
+            this.selectedObjects.splice(idx, 1);
+        } else {
+            this.selectedObjects.push(value);
+        }
     }
 }
